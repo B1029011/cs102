@@ -54,14 +54,13 @@ void write_emp(){
     printf("請輸入要新增操作人員 ID (1~99) :");
     scanf("%d",&emp.emp_id);
     printf("請輸入要新增操作人員 Name :");
-    scanf("%s",&emp.emp_name);
+    scanf("%s",emp.emp_name);
     printf("請輸入要新增操作人員 Salary :");
     scanf("%d",&emp.emp_salary);
-    
     FILE* emp_file = fopen("operator_id.bin","ab");
-    fprintf(emp_file ,"%d\n" ,emp.emp_id);
-    fprintf(emp_file ,"%s\n" ,emp.emp_name);
-    fprintf(emp_file ,"%d\n" ,emp.emp_salary);
+    fprintf(emp_file ,"user_id:%d\n" ,emp.emp_id);
+    fprintf(emp_file ,"user_name:%s\n" ,emp.emp_name);
+    fprintf(emp_file ,"user_salary:%d\n" ,emp.emp_salary);
     fclose(emp_file);
     printf("輸入完成");
 }
@@ -88,9 +87,7 @@ int main(){
     FILE* fid;
     
     
-    fid = fopen("operator_id.bin","w+");
-    fprintf(fid,"user_id:%d",id);
-    fclose(fid);
+
     
     int counter;
     init_file();
